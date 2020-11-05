@@ -1,0 +1,12 @@
+public class Main {
+
+    public static void main(String[] args){
+        Jogador j1 = new Jogador("Kimmich","Volante",1995,"Alemão",176,73);
+        String resul = j1.getNome() + " " + j1.getNacionalidade() + " " + j1.getPosicao() + " " + j1.getAltura() + " " + j1.getAnoDeNascimento() + " " + j1.getPeso();
+        int idade = 2020 - j1.getAnoDeNascimento();
+        System.out.println(resul);
+        System.out.println("Kimmich tem " + idade + " anos.");
+        System.out.println("Faltam " + (38-idade) + " anos para " + j1.getNome() + " se aposentar.");
+    }
+
+}

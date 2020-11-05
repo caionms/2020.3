@@ -1,0 +1,113 @@
+Trabalhando com Java:
+1-Criar projeto
+2-Criar um arquivo java class em scr, essa será a classe que irei trabalhar
+3-Colocar atributos da classe(lembrar de colocar uma palavra-chave private (pra encapsular o atributo para que ele seja visivel apenas na classe), ex:
+	public class Jogador {
+		private String nome;
+  	  	private String posicao;
+	  	private int anoDeNascimento;
+  	 	private String nacionalidade;
+  		private int altura;
+  		private int peso;
+4-Criar Construtor de classe, que será onde irei atribuir os valores, será o modelo para inserir os dados, se por acaso tiver um conjunto de entradas com um dos valores definidos, cria outro construtor pra ele (overloading)	, ex:
+	public Jogador(String nome, String posicao, int anoDeNascimento, String nacionalidade, int altura, int peso){
+        this.nome = nome;
+        this.posicao = posicao;
+        this.anoDeNascimento = anoDeNascimento;
+        this.nacionalidade = nacionalidade;
+        this.altura = altura;
+        this.peso = peso;
+    }
+5-Criar os métodos, que serão as funções de seu código, ex;
+	public String getNome(){
+        return nome;
+    }
+    
+    public String getPosicao(){
+        return posicao;
+    }
+
+    public int getAnoDeNascimento(){
+        return anoDeNascimento;
+    }
+
+    public String getNacionalidade(){
+        return nacionalidade;
+    }
+
+    public int getAltura(){
+        return altura;
+    }
+
+    public int getPeso(){
+        return peso;
+    }
+    
+    public String retornarValores(){
+        String resul = getNome() + " " + getNacionalidade() + " " + getPosicao() + " " + getAltura() + " " + getAnoDeNascimento() + " " + getPeso();
+        return resul;
+    }
+    
+    public int calcularIdade(){
+        int idade = 2020-getAnoDeNascimento();
+        return idade;
+    }
+    
+    public void tempoParaAposentar(){
+        int aposentadoria=0;
+        if(getPosicao() == "Volante" || getPosicao() == "Meio-Campo"){
+            aposentadoria = 38 - calcularIdade();
+        }
+        else if(getPosicao() == "Defensor"){
+            aposentadoria = 40 - calcularIdade();
+        }
+        else if(getPosicao() == "Atacante"){
+            aposentadoria = 35 - calcularIdade();
+        }
+        System.out.println("Faltam " + aposentadoria + " anos para " + getNome() + " se aposentar.");
+    }
+5-Criar a classe Main, onde irá rodar o código.
+6-Criar a função main dentro da classe Main, ex;
+	public static void main(String[] args){
+	
+    }
+7-Criar um objeto de uma das classes, atribuindo valores a ele, essa objeto terá um identificador (Classe identidade = new Classe(...)), ex:
+	Jogador j1 = new Jogador('nome':"Kimmich",'posicao':"Volante",'anoDeNascimento':1995,'nacionalidade':"Alemão",'altura':176,'pes':73);
+8-Codar o programa utilizando os métodos implementados na classe dele, ex:
+	public static void main(String[] args){
+        Jogador j1 = new Jogador('nome':"Kimmich",'posicao':"Volante",'anoDeNascimento':1995,'nacionalidade':"Alemão",'altura':176,'pes':73);
+        System.out.println(j1.retornarValores());
+        System.out.println("Kimmich tem " + j1.calcularIdade() + " anos.");
+        j1.tempoParaAposentar();
+    }
+
+Observações:
+Utilizando métodos na própria classe, ou seja, usando métodos dentro de métodos, não tem que colocar objeto.método, pois ainda não tem objeto, então só coloca método.
+
+Pode se criar duas funções com tipos de parametros diferentes para pesquisar o mesmo objeto, ex:
+	 public String consultarLivro(String titulo){
+        String informacao = "Titulo: " + this.titulo + " ISBN: " + this.isbn + " Matéria: " + this.materia + " Edição: " + this.edicao + " Ano: " + this.ano + " Ano de Publicação: " + this.anoPublicacao;
+        if(titulo == this.titulo){
+            return informacao;
+        }
+        else{
+            return "Livro não encontrado.";
+        }
+    }
+
+    public String consultarLivro(int isbn){
+        String informacao = "Titulo: " + this.titulo + " ISBN: " + this.isbn + " Matéria: " + this.materia + " Edição: " + this.edicao + " Ano: " + this.ano + " Ano de Publicação: " + this.anoPublicacao;
+        if(isbn == this.isbn){
+            return informacao;
+        }
+        else{
+            return "Livro não encontrado.";
+        }
+    }
+    
+Pode-se criar um método passando uma classe como parametro, ex;
+	public void mostraDadosOutraCasa(Casa outraCasa){
+		System.out.println("Dados Casa - Numero: " + outraCasa.getNumero()...;
+	}
+
+

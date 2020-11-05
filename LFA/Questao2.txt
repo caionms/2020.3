@@ -1,0 +1,70 @@
+﻿#states
+s0
+s1
+s2
+s3
+s4
+#initial
+s0
+#accepting
+s0
+#alphabet
+1
+0
+#transitions
+s0:0>s0
+s0:1>s1
+s1:0>s2
+s1:1>s3
+s2:0>s4
+s2:1>s0
+s3:0>s1
+s3:1>s2
+s4:0>s3
+s4:1>s4
+
+
+Para descrever a linguagem, iremos usar o resto da divisão para a criação do nosso autômato. Temos 5 estados, quando o resto da divisão é 0, 1, 2, 3 e 4, caso o resto seja maior ou igual a 5, subtraímos 5 do resto dado.
+
+Dessa forma, tempos que s0 = 5x, s1 = 5x+1, s2 = 5x+2, s3 = 5x+3 e s4 = 5x+4.
+
+Sabendo que o estado inicial representa o estado da máquina em que nenhuma palavra ainda foi lida temos então que nenhuma palavra ainda foi lida, temos então que nosso sistema começa com o número 0, onde x=0, logo 5.x=5, 0=0.
+
+É preciso salientar algumas coisas para a criação do autômato:
+
+	Se adicionarmos 0 no final de um número binário, dobramos seu valor (101 = 5 -> 1010 = 10)
+	Logo se o primeiro estado é um número divisível por 5, ao adicionar 0, resultará sempre em outro valor divisível por 5
+
+	Ao adicionar 1 no final do número resultará no número multiplicado por 2 somado a 1 (101 = 5 -> 1011 = 11)
+	Logo se o primeiro estado é um número divisível por 5, ao adicionar 1, resultará sempre em um outro valor não divisível por 5
+
+
+Dessa forma ao analisarmos cada estado, chamamos na seguinte tabela caso transições:
+
+
+
+          |     5x          |       5x+1         |      5x+2        |     5x+3         |    5x+4
+
+
+0         |    2(5x)         |      2(5x+1)       |     2(5x+2)      |     2(5x+3)      |    (5x+4)
+          |    10x           |      10x+2         |     10x+4        |     (10x+5)+1    |    (10x+5)+3
+
+
+
+
+1        |     2(5x)+1        |    2(5x+1)+1       |     2(5x+2)+1    |    2(5x+3)+1      |    2(5x+4)+1
+         |     10x+1          |    10x+3           |     10x+5        |    (10x+5)+2      |    (10x+5)+4
+
+
+
+
+
+Podemos testar para o número 10100 (20), onde:
+S0 --->(1) S1 --->(0) S2 --->(1) S0 --->(0) S0  --->(0) S0 
+
+
+Ou para 101101 (45)
+S0 --->(1) S1 --->(0) S2 --->(1) S0 --->(1) S1 --->(0) S2 --->(1) S0
+
+
+Dessa forma encontramos a linguagem de números binários divisíveis por 5.

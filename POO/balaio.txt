@@ -1,0 +1,19 @@
+Caio Nery Matos Santos
+
+
+	Classe: 
+				Livro
+	Atributos:
+				título
+				preço
+				condição
+				série
+				edição
+	
+	Classe:
+				Anunciante
+	Atributos:
+				nome
+				número
+				interesse  (comprar ou vender)
+				listaDeLivros
