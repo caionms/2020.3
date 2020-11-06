@@ -15,31 +15,33 @@ cListaDupEnc::cListaDupEnc() { //funcionando
 // ******************************************************
 
 cListaDupEnc::cListaDupEnc(const cListaDupEnc &l) {
-	numElem = l.numElem;
-	inicio 	= new cNo(*l.inicio);
-	fim = new cNo(*l.fim);
-	cNo* noProximo = l.inicio->getProx()->getProx();
-	cNo* noCorrente = l.inicio->getProx();
-	cNo* noAnterior = l.inicio;
-	cNo* noCorrenteNovo = inicio;
-	while(noCorrente != NULL){ //enquanto o proximo elemento da lista a ser copiada for diferente de null / só entra no looping caso a lista tiver mais de 1 elemento
-		if(noCorrenteNovo == inicio){ //como o primeiro elemento não tem anterior, só usa o set no proximo
-			cNo* noProx = new cNo(*noCorrente);
-			noCorrenteNovo->setProx(noProx);
+	if (this != &l)	{ //para não se auto copiar
+       	cNo* novoNo = new cNo;
+		cNo* noCorrente; //ponteiro pra percorrer a lista
+
+		if (l.inicio == NULL) {
+			inicio = NULL;
+			fim = NULL;
+			numElem = 0;
 		}
-		else{ //caso eu não esteja no primeiro elemento da lista nova
-			cNo* noProx = new cNo(*noProximo);
-			cNo* noAnte = new cNo(*noAnterior);
-			noCorrenteNovo->setProx(noProx);
-			noCorrenteNovo->setAnte(noAnte);
-			noProximo = noProximo->getProx();
-			noCorrente = noCorrente->getProx();
-			noAnterior = noAnterior->getProx();
-		}
-		noCorrenteNovo = noCorrenteNovo->getProx();
+		else{ //teste começa agr
+			noCorrente = l.inicio; //noCorrente aponta pra listar a ser copiada
+			numElem = l.numElem;
+			inicio = new cNo(*l.inicio); //criar inicio da nova lista
+			fim = inicio; //como só possui 1 elemento, fim e inicio são iguais
+			noCorrente = noCorrente->getProx(); //noCorrente vai apontar pro proximo elemento da lista a ser copiada
 		
+	    	//copia o resto da lista
+			while (noCorrente != NULL){
+				novoNo = new cNo(*noCorrente);
+				novoNo->setAnte(fim);
+				fim->setProx(novoNo);
+				fim = novoNo;
+				numElem++;
+				noCorrente = noCorrente->getProx();
+			}	
+	 	}
 	}
-	fim = noCorrenteNovo->getAnte();
 }	
 
 // ******************************************************
@@ -170,12 +172,13 @@ bool cListaDupEnc::RemoveElemFim() { //funcionando
 // ******************************************************
 
 void cListaDupEnc::ImprimirLista() { //funcionando
-	std::cout << "Lista Duplamente Encadeada: " << std::endl;
+	std::cout << "\n\tLista Duplamente Encadeada: " << std::endl;
 	cNo* noCorrente = inicio;
 	while(noCorrente != NULL){
 		std::cout << "\t" << noCorrente->getDado() << std::endl;
 		noCorrente = noCorrente->getProx();	
 	}
+	std::cout << std::endl;
 }
 
 // ******************************************************
@@ -195,13 +198,3 @@ cNo* cListaDupEnc::getInicio(){
 cNo* cListaDupEnc::getFim(){
 	return fim;
 }
-
-	
-	
-	
-	
-	
-	
-	
-	
-	

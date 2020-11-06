@@ -15,29 +15,39 @@ cListaDupCirc::cListaDupCirc() { //funcionando
 // ******************************************************
 
 cListaDupCirc::cListaDupCirc(const cListaDupCirc &l) {
-	numElem = l.numElem;
-	inicio 	= new cNo(*l.inicio);
-	fim = new cNo(*l.fim);
-	cNo* noCorrente = l.inicio;
-	cNo* noCorrenteNovo = inicio;
-	while(noCorrente->getProx() != l.inicio){
-		cNo* noAnte = noCorrente->getAnte();
-		noAnte = new cNo(*noAnte);
-		cNo* noProx = noCorrente->getProx();
-		noProx = new cNo(*noProx);
-		noCorrente->setAnte(noAnte);
-		noCorrente->setProx(noProx);
-		noCorrente = noCorrente->getProx();
-		noCorrenteNovo = noCorrenteNovo->getProx();
-	}
-	cNo* noAnte = noCorrente->getAnte();
-	noAnte = new cNo(*noAnte);
-	cNo* noProx = noCorrente->getProx();
-	noProx = new cNo(*noProx);
-	noCorrente->setAnte(noAnte);
-	noCorrente->setProx(noProx);
-}	
+	if (this != &l)	{ //para não se auto copiar
+       	cNo* novoNo = new cNo;
+		cNo* noCorrente; //ponteiro pra percorrer a lista
 
+		if (l.inicio == NULL) {
+			inicio = NULL;
+			fim = NULL;
+			numElem = 0;
+		}
+		else{ //teste começa agr
+			noCorrente = l.inicio; //noCorrente aponta pra listar a ser copiada
+			numElem = l.numElem;
+			inicio = new cNo(*l.inicio); //criar inicio da nova lista
+	    	fim = inicio; //como só possui 1 elemento, fim e inicio são iguais
+	    	//como só possui 1 elemento, aponta pra ele mesmo
+	    	inicio->setProx(fim); 
+	    	inicio->setAnte(fim);
+			noCorrente = noCorrente->getProx(); //noCorrente vai apontar pro proximo elemento da lista a ser copiada
+		
+	    	//copia o resto da lista
+	    	while (noCorrente != l.inicio){
+	       		novoNo = new cNo(*noCorrente);
+	       		novoNo->setAnte(fim);
+	       		novoNo->setProx(inicio); //o novo fim aponta prox pro inicico, pois é circular
+	      		fim->setProx(novoNo);
+	       		fim = novoNo;
+	       		inicio->setAnte(fim); //o inicio aponta ante pro fim, pois é circular
+	       		noCorrente = noCorrente->getProx();
+	       		
+	    	}
+		}
+    }
+}
 // ******************************************************
 
 cListaDupCirc::~cListaDupCirc() { //funcionando
@@ -175,13 +185,14 @@ bool cListaDupCirc::RemoveElemFim() { //funcionando
 // ******************************************************
 
 void cListaDupCirc::ImprimirLista() { //funcionando
-	std::cout << "Lista Duplamente Encadeada Circular: " << std::endl;
+	std::cout << "\n\tLista Duplamente Encadeada Circular: " << std::endl;
 	std::cout << "\t" << inicio->getDado() << std::endl;
 	cNo* noCorrente = inicio->getProx();
 	while(noCorrente != inicio){
 		std::cout << "\t" << noCorrente->getDado() << std::endl;
 		noCorrente = noCorrente->getProx();	
 	}
+	std::cout << std::endl;
 }
 
 // ******************************************************
@@ -201,13 +212,3 @@ cNo* cListaDupCirc::getInicio(){
 cNo* cListaDupCirc::getFim(){
 	return fim;
 }
-
-	
-	
-	
-	
-	
-	
-	
-	
-	

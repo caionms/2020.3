@@ -60,31 +60,55 @@ int main(int argc, char *argv[]){
 	cout << "Agora insira um valor para ser removido da Lista Duplamente Encadeada: " << endl;
 	cin >> aux;
 	if(LDE.RemoveElem(aux))
-		cout << aux << " removido da Lista Duplamente Encadeada." << endl;
+		cout << "\t" << aux << " removido da Lista Duplamente Encadeada." << endl;
 	else
-		cout << "Valor não encontrado." << endl;
+		cout << "\tValor não encontrado." << endl;
 	cout << "Agora insira um valor para ser removido da Lista Duplamente Encadeada Circular: " << endl;
 	cin >> aux;
 	if(LDC.RemoveElem(aux))
-		cout << aux << " removido da Lista Duplamente Encadeada Circular." << endl;
+		cout << "\t" << aux << " removido da Lista Duplamente Encadeada Circular." << endl;
 	else
-		cout << "Valor não encontrado." << endl;
+		cout << "\tValor não encontrado." << endl;
 	LDE.ImprimirLista();
 	LDC.ImprimirLista();
 	cout << "Agora insira um valor para ser adicionado no inicio da Lista Duplamente Encadeada: " << endl;
 	cin >> aux;
 	if(LDE.InsereElemInicio(aux))
-		cout << aux << " adicionado no inicio da Lista Duplamente Encadeada." << endl;
+		cout << "\t" << aux << " adicionado no inicio da Lista Duplamente Encadeada." << endl;
 	else
-		cout << "Não foi possivel adicionar." << endl;
+		cout << "\tNão foi possivel adicionar." << endl;
 	cout << "Agora insira um valor para ser adicionado no fim da Lista Duplamente Encadeada Circular: " << endl;
 	cin >> aux;
 	if(LDC.InsereElemFim(aux))
-		cout << aux << " adicionado no fim da Lista Duplamente Encadeada Circular." << endl;
+		cout << "\t" << aux << " adicionado no fim da Lista Duplamente Encadeada Circular." << endl;
 	else
-		cout << "Não foi possivel adicionar." << endl;
+		cout << "\tNão foi possivel adicionar." << endl;
 	LDE.ImprimirLista();
 	LDC.ImprimirLista();
+	cListaDupEnc LDE2(LDE);
+	cout << "Cópia da Lista Duplamente Encadeada pelo construtor: " << endl;
+	LDE2.ImprimirLista();
+	cListaDupCirc LDC2(LDC);
+	cout << "Cópia da Lista Circular pelo construtor: " << endl;
+	LDC2.ImprimirLista();
+	cout << "Agora insira um valor para ser adicionado no fim da cópia da Lista Duplamente Encadeada: " << endl;
+	cin >> aux;
+	if(LDE2.InsereElemFim(aux))
+		cout << "\t" << aux << " adicionado no fim da cópia da Lista Duplamente Encadeada." << endl;
+	else
+		cout << "\tNão foi possivel adicionar." << endl;
+	cout << "Agora insira um valor para ser adicionado no inicio da cópia da Lista Duplamente Encadeada Circular: " << endl;
+	cin >> aux;
+	if(LDC2.InsereElemInicio(aux))
+		cout << "\t" << aux << " adicionado no inicio da cópia da Lista Duplamente Encadeada Circular." << endl;
+	else
+		cout << "\tNão foi possivel adicionar." << endl;
+	cout << "Listas originais: " << endl;
+	LDE.ImprimirLista();
+	LDC.ImprimirLista();
+	cout << "Cópias das listas: " << endl;
+	LDE2.ImprimirLista();
+	LDC2.ImprimirLista();
 	return 0;
 }
 	
