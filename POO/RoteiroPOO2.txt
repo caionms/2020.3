@@ -1,0 +1,24 @@
+Sobrecargag: A sobrecarga é um conceito de polimorfismo que permite que exista mais de um método com o mesmo nome, passando parâmetros diferentes. (podem ter tipos de retorno diferentes) (overload)
+
+Sobreposição: A Sobreposição de métodos é um conceito do polimorfismo que nos permite reescrever um método nas classes filhas de uma classe pai, fazendo com que os métodos sejam sobrepostos, mantendo o nome, os parâmetros e o tipo de retorno, mudando a implementação. (override)
+
+Composição: A composição é instanciar, ou usar, uma classe/objeto em outra(o). É como se elas se comunicassem, trocassem informações. Ou seja, serve para reutilizar dados, sem ter que criar mais código pra isso. Basicamente é usar um objeto como parametro.
+
+Herança: A henraça é o principo do paradigma que permite a criação de novas classes a partir de classes já criadas, essas novas classes serão subclasses, classes derivadas e as classes já criadas serão superclasses ou classes base. Uma subclasse herda métodos e atributos de sua superclasse. ( evitando a repetição de um mesmo trecho de código e deixando o código mais objetivo e limpo)
+
+Ligação Dinâmica: Com a herança, não se sabe exatamente qual o método a ser invocado até que se conheça o tipo real do objeto (tipo dinâmico), essa será a ligação dinâmica.
+
+Polimorfismo: Polimorfismo significa que um objeto pode ser usado no lugar de outro objeto. (Métodos de mesmo nome são definidos em várias classes, podendo assumir diferentes implementações•  Propriedade pela qual uma variável pode apontar objetos de diferentes classes em momentos distintos23diferentes classes em momentos distintos)
+
+Campos estáticos: É usado para a criação de uma variável que poderá ser acessada por todas as instâncias de objetos desta classe como uma variável comum, ou seja, a variável criada será a mesma em todas as instâncias e quando seu conteúdo é modificado numa das instâncias, a modificação ocorre em todas as demais. E nas declarações de métodos ajudam no acesso direto à classe, portanto não é necessário instanciar um objeto para acessar o método.
+
+Cast: O cast é uma conversão, é quando convertemos um valor de um tipo para outro tipo. Basicamente existem dois tipos de conversão(Cast), as conversões explicitas e implícitas.
+
+Classes abstratas: Pode-se dizer que as classes abstratas servem como “modelo” para outras classes que dela herdem, não podendo ser instanciada por si só. Para ter um objeto de uma classe abstrata é necessário criar uma classe mais especializada herdando dela e então instanciar essa nova classe. Os métodos da classe abstrata devem então serem sobrescritos nas classes filhas.
+
+Interface: As interfaces são padrões definidos através de contratos ou especificações. Um contrato define um determinado conjunto de métodos que serão implementados nas classes que assinarem esse contrato. Uma interface é 100% abstrata, ou seja, os seus métodos são definidos como abstract, e as variáveis por padrão são sempre constantes (static final).
+Uma interface é definida através da palavra reservada “interface”. Para uma classe implementar uma interface é usada a palavra “implements”.
+
+Tratamentos de exceção: Uma maneira de contorntar os erros imprevistos durante sua execução, erros esses conhecidos como exceções que podem ser provenientes de erros de lógica ou acesso a dispositivos ou arquivos externos, é realizar o tratamento dos locais no código que podem vir a lançar possíveis exceções,
+
+Pacotes: Pacotes funcionam como pastas para fazer a organização das classes da sua aplicação, facilitando na busca de um código ou diminuindo a possibilidade da colisão de classes	.

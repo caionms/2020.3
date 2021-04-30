@@ -110,4 +110,12 @@ Pode-se criar um método passando uma classe como parametro, ex;
 		System.out.println("Dados Casa - Numero: " + outraCasa.getNumero()...;
 	}
 
+Podemos criar uma interface para delimitar os métodos existentes para classes especificas (ex: candidatos), podemos fazer um array de interfaces da mesma forma que eu fazia de classes abstratas em poo.
+Podemos criar uma classe abstrata para ser uma classe base para tipos de classes, onde não é possivel criar um objeto da classe abstrata.
+Da mesma forma que uma classe pode extender uma classe abstrata, uma interface pode extender outra interface. Além disso, ao extender uma classe abstrata, a classe que extende essa tem como métodos únicos protected (pois você só quer que ela e a classe pai possam ver os atributos. Enquanto as classes normais usam private (pois apenas ela pode ver seus atributos). Lembrando que quando uma classe implementa uma interface e extende outra classe pai. (Enquanto que uma interface extende outra interface).
+Obs:    ItemBiblioteca item = new Filme(); 
+	Filme filme = (filme) item; //cast pra poder ver os metodos da classe filme e não só da interface
+	item.getAtores();
+Pode-se criar um objeto a partir de uma interface: IFuncionario f1 = new Funcionario();
 
+Criar uma fábria com public static para não ter que ficar usando new. public static IMecanismoLog criarMecanismoLog(){return new MecanismoLog();}
