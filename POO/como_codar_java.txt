@@ -1,4 +1,7 @@
 Trabalhando com Java:
+https://www.w3schools.com/java/
+https://www.devmedia.com.br/artigos/java
+
 1-Criar projeto
 2-Criar um arquivo java class em scr, essa será a classe que irei trabalhar
 3-Colocar atributos da classe(lembrar de colocar uma palavra-chave private (pra encapsular o atributo para que ele seja visivel apenas na classe), ex:
@@ -119,3 +122,5 @@ Obs:    ItemBiblioteca item = new Filme();
 Pode-se criar um objeto a partir de uma interface: IFuncionario f1 = new Funcionario();
 
 Criar uma fábria com public static para não ter que ficar usando new. public static IMecanismoLog criarMecanismoLog(){return new MecanismoLog();}
+
+Pode-se usar apenas o this como parâmetro para passar o próprio objeto em um método dentro dele.
